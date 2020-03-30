@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "Responsive Portfolio",
   "main": "index.js",
+  "homepage":"https://ShallowSleepJS.github.io/shui_portfolio",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "deploy":"gh-pages -d dist"
   },
   "author": "SHUI",
   "license": "MIT",
   "dependencies": {
     "node-sass": "^4.13.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
