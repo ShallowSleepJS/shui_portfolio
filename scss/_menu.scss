@@ -1,0 +1,123 @@
+//Menu Button
+.menu-btn{
+  position: absolute;
+  right:40px;
+  top:40px;
+  z-index: 4;
+  cursor:pointer;
+  @include easeOut();
+
+  .btn-line{
+    background: set-text-color($primary-color);
+    width:25px;
+    height:3px;
+    margin: 0 0 5px 0;
+    @include easeOut();
+  }
+
+//rotate Into X with menu line
+  &.close{
+    transform: rotate(90deg);
+    .btn-line{
+      //Line1-Rotate
+      &:nth-child(1){transform:rotate(45deg) translate(6.25px,5px);}
+      //Line2-Hide
+      &:nth-child(2){opacity:0;}
+      //Line3-Rotate
+      &:nth-child(3){transform:rotate(-45deg) translate(6.5px,-5.25px);}
+    }
+  }
+}
+// animation Menu Overlay
+.menu{
+  position:fixed;
+  top:0;
+  width:100%;
+  opacity:0.9;
+  visibility:hidden;
+
+  &.show{
+    visibility:visible; //slide in from top
+  }
+
+  &-branding, &-nav {
+    display: flex;
+    flex-flow:column wrap;
+    align-items: center;
+    justify-content: center;
+    float:left;
+    width:50%;
+    height:100vh;
+    overflow: hidden;
+  }
+
+  &-nav{
+    margin:0;
+    padding:0;
+    background: lighten($primary-color,6);
+    list-style: none;
+    transform: translate3d(0,-100%,0);
+    @include easeOut;
+
+    &.show{
+      transform:translate3d(0,0,0);
+    }
+  }
+//branding slide
+  &-branding{
+    margin:0;
+    background:darken($primary-color,2);
+    transform: translate3d(0,100%,0);
+    @include easeOut;
+
+    &.show{
+      transform:translate3d(0,0,0); //slide in from bottom
+    }
+
+    .protrait{
+      height:180px;
+      width:180px;
+      background: url('../img/protrait.JPG');
+      background-size:cover;
+      border:3px solid $secondary-color;
+      border-radius: 50%;
+    }
+  }
+
+  .nav-item{
+    transform: translate3d(700px,0,0);
+    @include easeOut;
+
+    &.show{
+      //items slide in from right side
+      transform:translate3d(0,0,0);
+    }
+
+    &.current > a{
+      color:$secondary-color;
+    }
+  }
+  //Delay each nav-item slides by 0.1s
+    // for(let i=0;i<length;i++)
+  @for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}){
+      transition-delay: $x * 0.1s;
+    }
+  }
+
+  .nav-link {
+    display: inline-block;
+    position:relative;
+    font-size:30px;
+    text-transform: uppercase;
+    padding:1rem, 0;
+    color: set-text-color($primary-color);
+    text-decoration: none;
+    @include easeOut;
+
+    &:hover{
+      color: $secondary-color;
+    }
+  }
+
+}//menu

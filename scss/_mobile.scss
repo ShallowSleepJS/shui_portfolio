@@ -1,0 +1,89 @@
+//Responsiveness - Media Queries
+
+//Wide-Screen
+@include mediaXL{
+  .projects {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+//Large-Screen  eg. Desk/Laptops
+@include mediaL{
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+//Medium-Screen  eg.iPad
+@include mediaM{
+  main{
+    //align to center when screen get Small
+    align-items: center;
+    text-align: center;
+
+    .lg-heading{
+      line-height: 1; //fix row-spacing between first/last name
+      margin-bottom: 1.5rem; //fix margin to h2
+    }
+  }
+
+  div.menu-branding,
+  ul.menu-nav{ // fix Overlay
+    float: none;
+    width:100%;
+    min-height:0;
+
+    &.show{
+      transform:translate3d(0,0,0);
+    }
+  }
+
+ //Overlay Slides from left and right
+  .menu-branding{
+    height:33vh;
+    transform:translate3d(100%,0,0);
+    .protrait{
+      //make portrait smaller
+      height:100px;
+      width:100px;
+      background: url('../img/protrait small.jpg');
+      background-size: cover;
+    }
+  }
+  .menu-nav{
+    height:67vh;
+    transform:translate3d(-100%,0,0);
+    justify-content: flex-start;
+  }
+
+  //About Page
+  main{
+    .about-info{
+      grid-template-areas:'bioimage' 'bio' 'job1' 'job2' 'job3';
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+//Small-Screen  eg.phone
+@include mediaS{
+  main {
+    padding: 2rem;
+    #home h1 {
+      margin-top: 10vh;
+    }
+
+    .lg-heading {
+      margin-top:1rem;
+      font-size: 5rem;
+    }
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
