@@ -5,6 +5,12 @@
   .projects {
     grid-template-columns: repeat(3, 1fr);
   }
+  .designWork {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .appDesign {
+    width:90%;
+  }
 }
 
 //Large-Screen  eg. Desk/Laptops
@@ -67,6 +73,9 @@
   .projects {
     grid-template-columns: repeat(1, 1fr);
   }
+  .designWork {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 //Small-Screen  eg.phone
@@ -84,6 +93,9 @@
   }
 
   .projects {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .designWork {
     grid-template-columns: repeat(1, 1fr);
   }
 }
