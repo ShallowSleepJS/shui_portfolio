@@ -103,6 +103,7 @@
     .nav-item:nth-child(#{$x}){
       transition-delay: $x * 0.1s;
     }
+
   }
 
   .nav-link {
@@ -113,6 +114,19 @@
     padding:1rem, 0;
     color: set-text-color($primary-color);
     text-decoration: none;
+    @include easeOut;
+
+    &:hover{
+      color: $secondary-color;
+    }
+  }
+
+  .sub-nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+    padding:1rem, 0;
+    color: set-text-color($primary-color);
     @include easeOut;
 
     &:hover{

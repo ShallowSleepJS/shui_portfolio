@@ -44,6 +44,7 @@ header {
 
 .text-secondary{
   color: $secondary-color;
+  font-weight: bold;
 }
 
 main{
@@ -78,12 +79,15 @@ main{
 .bio-image{
   grid-area:bioimage;
   border-radius: 50%;
-  border: $secondary-color 4px solid;
+  border: $secondary-color 5px solid;
   margin:auto;
 }
 .bio{
   grid-area:bio;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  p{
+    span{font-size:0.9rem;}
+  }
 }
 .job job-1 {grid-area:job1;}
 .job job-2 {grid-area:job2;}
@@ -101,7 +105,10 @@ main{
 .job{
   background: lighten($primary-color, 6);
   padding: 0.5rem;
+  margin-top: 2rem;
   border-bottom: $secondary-color 5px solid;
+  p{font-size: 0.9rem;}
+  h3{font-weight: bold;}
 }
 
 /************WORK************/
@@ -122,6 +129,21 @@ main{
   }
 }
 
+.appDesign {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(1, 1fr);
+
+  img {
+    width: 100%;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+      @include easeOut;
+    }
+  }
+}
 /************Contact************/
 .boxes {
   display: flex;
